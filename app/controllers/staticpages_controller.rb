@@ -1,6 +1,9 @@
 class StaticpagesController < ApplicationController
   require "mechanize"
 
+  def index
+  end
+ 
   def home
     
   end
