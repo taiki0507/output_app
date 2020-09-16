@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+  get 'micropost/new'
+
   root 'staticpages#home'
+  post '/' => 'staticpages#home'
   
   get 'staticpages/index' => 'staticpages#index'
   get 'staticpages/show' => 'staticpages#show'
   get 'staticpages/news' => 'staticpages#news'
+  get 'staticpages/new' => 'staticpages#new'
+  
+  
+  
+  get 'micropost/new' => 'micropost#new'
   
   
 

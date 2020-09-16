@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
             <img src="" alt="" class="icon">
         </a>
         <div>
-            <h4><%= link_to "学習の記録", root_path%></h4>
+            <h4>学習の記録</h4>
         </div>
         <div>
             <ul>
@@ -27,31 +27,8 @@
             </ul>
         </div>
     </header>
-
-    <main>
-        <div>
-               <% @staticpage.each do |content| %>
-                   
-                   <%= content%>
-               <%end%>
-        </div>
-        
-        
-    </main>
-    <footer>
-        <div class= "footer">
-            <ul>
-                <li>
-                    <%= link_to "プロフィール", staticpages_index_path%>
-                </li>
-                <li>
-                    <%= link_to "アウトプット", staticpages_show_path%>
-                </li>
-                <li>
-                    <%= link_to "ニュース", staticpages_news_path%>
-                </li>
-            </ul>
-        </div>
-    </footer>
- </body>
-</html>
+    <body>
+        <%= text_area_tag(:message, "Hi, nice site", size: "24x6") %>  
+    </body>
+    
+    

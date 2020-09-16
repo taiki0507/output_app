@@ -15,7 +15,7 @@
             <img src="" alt="" class="icon">
         </a>
         <div>
-            <h4>学習の記録</h4>
+            <h4><%= link_to "学習の記録", root_path%></h4>
         </div>
         <div>
             <ul>
@@ -34,11 +34,11 @@
               <!-- <h1 class="jumbotron-heading">Album example</h1> -->
               <h1 class="jumbotron-heading">学習記録サイト</h1>
               <!-- <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p> -->
-              <p class="lead text-muted">内容や作成者など, 以下のコレクションに関する簡単な説明文を書きましょう。なるべく短く, わかりやすい文にしましょう。しかし短すぎると, 友達は見てくれないかもしれません。</p>
+              <p class="lead text-muted">学習の進捗を記録したり、学習のアウトプットを投稿しましょう。</p>
               <p>
                 <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
-                <a href="#" class="btn btn-primary my-2">メインアクション</a>
-                <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+                <%= link_to "新規投稿", staticpages_new_path,{class:"btn btn-primary my-2"}%>
+                
                 <a href="#" class="btn btn-secondary my-2">サブアクション</a>
               </p>
             </div>
@@ -47,14 +47,20 @@
         <!--アウトプット-->
         <div class="album py-5 bg-light">
             <div class="container">
-        
+                
+              <h2>アウトプット</h2>
+              
               <div class="row">
                 <div class="col-md-4">
                   <div class="card mb-4 shadow-sm">
                     <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22347%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20347%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1746ba874b9%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1746ba874b9%22%3E%3Crect%20width%3D%22347%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.203125%22%20y%3D%22120.103125%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
                     <div class="card-body">
                       <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-                      <p class="card-text">これは写真の解説文付きのカードです。自然に説明を加えることができます。しかしこの文章は少し長いかもしれません。</p>
+                      <p class="card-text">
+                        <% @staticpage.each do |staticpage| %>
+                          <%= staticpage%>
+                        <%end%>
+                      </p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                           <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
@@ -63,11 +69,17 @@
                           <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
                         </div>
                         <!-- <small class="text-muted">9 mins</small> -->
-                        <small class="text-muted">9分</small>
+                        <% @staticpage.each do|title|%>
+                          <small class="text-muted">
+                            <%= title%>  
+                          </small>
+                        <% end%>
                       </div>
                     </div>
                   </div>
                 </div>
+                
+                
                 <div class="col-md-4">
                   <div class="card mb-4 shadow-sm">
                     <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22347%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20347%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1746ba874bb%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1746ba874bb%22%3E%3Crect%20width%3D%22347%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.203125%22%20y%3D%22120.103125%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
@@ -82,7 +94,11 @@
                           <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
                         </div>
                         <!-- <small class="text-muted">9 mins</small> -->
-                        <small class="text-muted">9分</small>
+                        <% @title.each do|title|%>
+                          <small class="text-muted">
+                            <%= title%>  
+                          </small>
+                        <% end%>
                       </div>
                     </div>
                   </div>
@@ -227,42 +243,40 @@
         </div>
         
         <!--ニュース-->
-        <div class="container marketing">
+        <div class="container_marketing">
+            <h2>おすすめニュース</h2>
             <!-- Three columns of text below the carousel -->
-            <div class="row">
-              <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <!-- <h2>Heading</h2> -->
-                <h2>見出し</h2>
-                <p>掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。</p>
-                <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-                <p><a class="btn btn-secondary" href="#" role="button">詳しく見る »</a></p>
-              </div><!-- /.col-lg-4 -->
-              <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <!-- <h2>Heading</h2> -->
-                <h2>見出し</h2>
-                <p>その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。</p>
-                <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-                <p><a class="btn btn-secondary" href="#" role="button">詳しく見る »</a></p>
-              </div><!-- /.col-lg-4 -->
-              <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <!-- <h2>Heading</h2> -->
-                <h2>見出し</h2>
-                <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。</p>
-                <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-                <p><a class="btn btn-secondary" href="#" role="button">詳しく見る »</a></p>
-              </div><!-- /.col-lg-4 -->
+            <div class="row1">
+              <%@elements[0..2].each do|element|%>
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                    <!-- <h2>Heading</h2> -->
+                    <h2>
+                      <%=link_to(element.inner_text,element[:href])%>
+                    </h2>
+          
+                
+                    <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
+                    <p><a class="btn btn-secondary" href="#" role="button">詳しく見る »</a></p>
+                  </div><!-- /.col-lg-4 -->
+              <%end%>
             </div><!-- /.row -->
-        
-        
-           
-        
         </div>
     </main>
     <footer>
-        
+        <div class= "footer">
+            <ul>
+                <li>
+                    <%= link_to "プロフィール", staticpages_index_path%>
+                </li>
+                <li>
+                    <%= link_to "アウトプット", staticpages_show_path%>
+                </li>
+                <li>
+                    <%= link_to "ニュース", staticpages_news_path%>
+                </li>
+            </ul>
+        </div>
     </footer>
 
 </body>

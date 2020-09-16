@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,16 +27,18 @@
             </ul>
         </div>
     </header>
-
     <main>
         <div>
-               <% @staticpage.each do |content| %>
-                   
-                   <%= content%>
-               <%end%>
+            <%= form_for @staticpage , url: {controller: "staticpages"}, html: {class: "nifty_form"} do |f| %>
+              <%= f.label :title%>
+              <%= f.text_field :title %>
+              
+              <%= f.label :content%>
+              <%= f.text_area :content, size: "60x12" %>
+              <%= f.submit "Create" %>
+              byebug
+            <% end %>
         </div>
-        
-        
     </main>
     <footer>
         <div class= "footer">
@@ -53,5 +55,7 @@
             </ul>
         </div>
     </footer>
- </body>
+</body>
 </html>
+    
+    

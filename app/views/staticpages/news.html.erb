@@ -1,7 +1,40 @@
-    <%@elements.each do|element|%>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type= "text/css" href="staticpages.css">
+    <title>output.app</title>
+</head>
+
+<body>
+    <header>
+        <a href="" class="icon">
+            <img src="" alt="" class="icon">
+        </a>
+        <div>
+            <h4><%= link_to "学習の記録", root_path%></h4>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <%= link_to "プロフィール", staticpages_index_path%>
+                    <%= link_to "アウトプット", staticpages_show_path%>
+                    <%= link_to "ニュース", staticpages_news_path%>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <body>
+        <h2>おすすめニュース</h2>
+        <%@elements.each do|element|%>
           <ul>
             <li>
               <%=link_to(element.inner_text,element[:href])%>
             </li>
           </ul>
-    <%end%>
+        <%end%>    
+    </body>
+    
