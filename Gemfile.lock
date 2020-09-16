@@ -112,6 +112,7 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     ntlm-http (0.1.1)
+    pg (1.2.3)
     puma (3.12.6)
     rack (2.2.3)
     rack-test (0.6.3)
@@ -200,6 +201,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.0.5)
   mechanize (~> 2.7, >= 2.7.5)
+  pg
   puma (~> 3.0)
   rails (~> 5.0.0)
   sass-rails (~> 5.0)
